@@ -67,20 +67,17 @@ MPNumericTextFieldDelegate *numericDelegate;
 - (void) setType:(enum MPNumericTextFieldType)type {
   _type = type;
   
-  NSNumber *number = [MPFormatterUtils numberFromString:self.encodedValue locale:self.locale];
-  if (number == nil) number = @0;
-  
   switch (type) {
     case MPNumericTextFieldPercentage:
-      self.placeholder = [MPFormatterUtils stringFromPercentage:number locale:self.locale];
+      self.placeholder = [MPFormatterUtils stringFromPercentage:@(0) locale:self.locale];
       break;
 
     case MPNumericTextFieldCurrency:
-      self.placeholder = [MPFormatterUtils stringFromCurrency:number locale:self.locale];
+      self.placeholder = [MPFormatterUtils stringFromCurrency:@(0) locale:self.locale];
       break;
 
     case MPNumericTextFieldDecimal:
-      self.placeholder = [MPFormatterUtils stringFromNumber:number locale:self.locale];
+      self.placeholder = [MPFormatterUtils stringFromNumber:@(0) locale:self.locale];
       break;
   }
 }
