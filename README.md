@@ -5,6 +5,8 @@ MPNumericTextField
 
 It correctly handles decimal numbers, percentages and currency values, using either the current locale or a manually provided one.
 
+![Screenshot of BasicExample](https://raw.githubusercontent.com/marzapower/MPNumericTextField/master/Examples/BasicExample/screenshot.png)
+
 Installation
 ------------
 
@@ -58,6 +60,20 @@ Eg. to change the number style of your text field to currency just do:
 numericTextField.type = MPNumericTextFieldCurrency;
 ```
 
+### Getting and setting the numeric value
+
+You can access the numeric value of your text field via the `numericValue` property. Eg:
+
+```objective-c
+MPNumericTextField *textField = [[MPNumericTextField alloc] init];
+textField.type = MPNumericTextFieldPercentage;
+textField.numericValue = @(2.25);
+
+// ... (make changes to the text field) ...
+
+NSNumber *currentValue = textField.numericValue;
+```
+
 ### Locales
 
 By default behavior the `MPNumericTextField` will use the `[NSLocale currentLocale]` locale. But you can easily change this property too:
@@ -89,3 +105,28 @@ If you need to add a custom delegate to the text field, be sure to override this
 ```
 
 otherwise the `MPNumericTextField` will not work as intended.
+
+### Bonus: placeholder color
+
+You can choose to change the default placeholder color in your text field. Just use the `placeholderColor` property:
+
+```objective-c
+numericTextField.placeholderColor = [UIColor redColor];
+```
+
+If this property is set to `nil`, it will use the default system color.
+
+
+## Support
+
+Feel free to apport changes to the source code of this project and to send a pull request on Github to merge your contribution to the original project.
+
+If you need further assistance, please contact me on Twitter: [@marzapower][twitter].
+
+[twitter]: http://www.twitter.com/marzapower
+
+## Release notes
+
+Version 1.0.0
+
+ - First public release
