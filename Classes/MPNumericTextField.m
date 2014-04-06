@@ -58,6 +58,7 @@ MPNumericTextFieldDelegate *numericDelegate;
 
 - (void) setDefaults {
   self.locale = [NSLocale currentLocale];
+  self.keyboardType = UIKeyboardTypeDecimalPad;
   self.type = MPNumericTextFieldDecimal;
   self.delegate = self.numericDelegate;
   self.textAlignment = NSTextAlignmentRight;
