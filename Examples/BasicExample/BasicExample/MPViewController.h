@@ -15,4 +15,6 @@
 @property(nonatomic, strong) IBOutlet MPNumericTextField *percentageField;
 @property(nonatomic, strong) IBOutlet MPNumericTextField *currencyField;
 
+- (IBAction)getValues:(id)sender;
+
 @end

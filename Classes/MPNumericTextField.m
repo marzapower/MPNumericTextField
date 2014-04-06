@@ -1,8 +1,7 @@
 //
 //  MPTextField.m
-//  BasicExample
 //
-//  Version 1.2.0
+//  Version 1.0.0
 //
 //  Created by Daniele Di Bernardo on 05/04/14.
 //  Copyright (c) 2014 marzapower. All rights reserved.
@@ -46,6 +45,8 @@ MPNumericTextFieldDelegate *numericDelegate;
   _type = type;
   
   NSNumber *number = [MPFormatterUtils numberFromString:self.encodedValue locale:self.locale];
+  if (number == nil) number = @0;
+  
   switch (type) {
     case MPNumericTextFieldPercentage:
       self.placeholder = [MPFormatterUtils stringFromPercentage:number locale:self.locale];
@@ -64,7 +65,7 @@ MPNumericTextFieldDelegate *numericDelegate;
 - (void)drawPlaceholderInRect:(CGRect)rect
 {
   if (self.placeholderColor != nil) {
-    CGRect placeholderRect = [self placeholderRectForBounds:self.bounds];
+    //CGRect placeholderRect = [self placeholderRectForBounds:self.bounds];
     
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     style.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -73,7 +74,7 @@ MPNumericTextFieldDelegate *numericDelegate;
     NSDictionary *attributes = @{NSFontAttributeName: self.font,
                                  NSParagraphStyleAttributeName: style,
                                  NSForegroundColorAttributeName: self.placeholderColor};
-    [self.placeholder drawInRect:placeholderRect withAttributes:attributes];
+    [self.placeholder drawInRect:rect withAttributes:attributes];
   } else {
     [super drawPlaceholderInRect:rect];
   }
@@ -90,6 +91,33 @@ MPNumericTextFieldDelegate *numericDelegate;
     numericDelegate = [[MPNumericTextFieldDelegate alloc] init];
   }
   return numericDelegate;
+}
+
+- (void) setNumericValue:(NSNumber *)value {
+  switch (_type) {
+    case MPNumericTextFieldCurrency:
+      self.encodedValue = [MPFormatterUtils stringFromCurrency:value locale:_locale];
+      break;
+    case MPNumericTextFieldDecimal:
+      self.encodedValue = [MPFormatterUtils stringFromNumber:value locale:_locale];
+      break;
+    case MPNumericTextFieldPercentage:
+      self.encodedValue = [MPFormatterUtils stringFromPercentage:value locale:_locale];
+      break;
+  }
+  
+  self.text = self.encodedValue;
+}
+
+- (NSNumber *)numericValue {
+  switch (_type) {
+    case MPNumericTextFieldCurrency:
+      return [MPFormatterUtils currencyFromString:_encodedValue locale:_locale];
+    case MPNumericTextFieldDecimal:
+      return [MPFormatterUtils numberFromString:_encodedValue locale:_locale];
+    case MPNumericTextFieldPercentage:
+      return [MPFormatterUtils percentageFromString:_encodedValue locale:_locale];
+  }
 }
 
 @end

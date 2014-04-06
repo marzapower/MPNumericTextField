@@ -1,8 +1,7 @@
 //
 //  MPTextField.h
-//  BasicExample
 //
-//  Version 1.2.0
+//  Version 1.0.0
 //
 //  Created by Daniele Di Bernardo on 05/04/14.
 //  Copyright (c) 2014 marzapower. All rights reserved.
@@ -25,5 +24,6 @@ enum MPNumericTextFieldType {
 @property (nonatomic, assign) enum MPNumericTextFieldType   type;
 @property (nonatomic, strong) NSLocale                     *locale;
 @property (nonatomic, getter = numericDelegate) MPNumericTextFieldDelegate   *numericDelegate;
+@property (nonatomic, assign) NSNumber                     *numericValue;
 
 @end
