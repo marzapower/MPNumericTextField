@@ -18,7 +18,7 @@
 {
   [super viewDidLoad];
   
-  UIColor *placeholderColor = [UIColor darkGrayColor];
+  UIColor *placeholderColor = [UIColor colorWithRed:0 green:0.5 blue:0.5 alpha:0.5];
   _decimalField.placeholderColor = placeholderColor;
   _percentageField.placeholderColor = placeholderColor;
   _currencyField.placeholderColor = placeholderColor;
