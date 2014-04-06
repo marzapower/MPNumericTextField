@@ -52,6 +52,10 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+  if (![textField isKindOfClass:MPNumericTextField.class]) {
+    return YES;
+  }
+  
   BOOL result = NO; //default to reject
   
   MPNumericTextField *fxText = (MPNumericTextField *)textField;
