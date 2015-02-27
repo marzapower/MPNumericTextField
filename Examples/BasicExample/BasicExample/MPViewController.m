@@ -27,6 +27,10 @@
   _percentageField.type = MPNumericTextFieldPercentage;
   _currencyField.type = MPNumericTextFieldCurrency;
   
+  _decimalField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _percentageField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _currencyField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  
   [_decimalField setNumericValue:@(10.2)];
   [_percentageField setNumericValue:@(5)];
 }

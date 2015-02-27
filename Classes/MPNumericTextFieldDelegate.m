@@ -151,5 +151,14 @@
   return NO;
 }
 
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+  if ([textField isKindOfClass:MPNumericTextField.class]) {
+    MPNumericTextField *fxText = (MPNumericTextField *)textField;
+    fxText.encodedValue = nil;
+  }
+  
+  return YES;
+}
+
 
 @end
