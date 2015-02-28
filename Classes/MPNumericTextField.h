@@ -39,10 +39,11 @@ enum MPNumericTextFieldType {
   MPNumericTextFieldPercentage
 };
 
+IB_DESIGNABLE
 @interface MPNumericTextField : UITextField
 
 @property (nonatomic, strong) NSString                     *encodedValue;
-@property (nonatomic, strong) UIColor                      *placeholderColor;
+@property (nonatomic, strong) IBInspectable UIColor        *placeholderColor;
 @property (nonatomic, assign) enum MPNumericTextFieldType   type;
 @property (nonatomic, strong) NSLocale                     *locale;
 @property (nonatomic, getter = numericDelegate) MPNumericTextFieldDelegate   *numericDelegate;
