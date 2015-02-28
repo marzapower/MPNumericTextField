@@ -42,7 +42,7 @@ enum MPNumericTextFieldType {
 IB_DESIGNABLE
 @interface MPNumericTextField : UITextField
 
-@property (nonatomic, strong) NSString                     *encodedValue;
+@property (nonatomic, copy)   NSString                     *encodedValue;
 @property (nonatomic, strong) IBInspectable UIColor        *placeholderColor;
 @property (nonatomic, assign) enum MPNumericTextFieldType   type;
 @property (nonatomic, strong) NSLocale                     *locale;
