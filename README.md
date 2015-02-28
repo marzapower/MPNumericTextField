@@ -17,7 +17,7 @@ Installation
 Just add the following line to the `Podfile` in your project:
 
 ```ruby
-pod "MPNumericTextField", '~> 1.0.0'
+pod "MPNumericTextField", '~> 1.1.0'
 ```
 
 ### Manually
@@ -87,24 +87,11 @@ numericTextField.locale = myCustomLocale;
 The `MPNumericTextField` class seamlessly uses the `MPNumericTextFieldDelegate` class as its own delegate. This delegate handles all the
 logics that makes the text field draw numbers with the correct format while the user inserts numbers.
 
-If you need to add a custom delegate to the text field, be sure to override this method in your delegate implementation:
+You can decide to set a new custom delegate for your objects, and the `MPNumericTextField` will treat them as forward delegates
+to make them work correctly with the existing one.
 
-
-```objective-c
-- (BOOL)textField:(UITextField *)textField
-        shouldChangeCharactersInRange:(NSRange)range
-        replacementString:(NSString *)string{
-
-  if ([textField isKindOfClass:MPNumericTextField.class]) {
-    MPNumericTextField *numericTextField = (MPNumericTextField *)textField;
-    return [numericTextField.numericDelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
-  } else {
-    return YES;
-  }
-}
-```
-
-otherwise the `MPNumericTextField` will not work as intended.
+Unlike version 1.0.0 of this library, starting from 1.1.0 you can start using the standard `-setDelegate:` and `-delegate` methods
+from `UITextField` to set up your custom delegates without worrying about the basic numeric field functionalities.
 
 ### Bonus: placeholder color
 
@@ -126,6 +113,13 @@ If you need further assistance, please contact me on Twitter: [@marzapower][twit
 [twitter]: http://www.twitter.com/marzapower
 
 ## Release notes
+
+Version 1.1.0
+
+ - [Fix] Added support for all delegate methods in `MPNumericTextFieldDelegate`
+ - [New] Added support for custom delegates without boilerplate code
+ - [New] Added IB_DESIGNABLE keyword to `MPNumericTextField`
+ - [Enh] Some little code enhancements
 
 Version 1.0.0
 

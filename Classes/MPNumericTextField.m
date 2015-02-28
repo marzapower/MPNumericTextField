@@ -1,14 +1,14 @@
 //
 //  MPTextField.m
 //
-//  Version 1.0.0
+//  Version 1.1.0
 //
 //  Created by Daniele Di Bernardo on 05/04/14.
 //  Copyright (c) 2014 marzapower. All rights reserved.
 //
 //  The MIT License (MIT)
 //  
-//  Copyright (c) [2014] [Daniele Di Bernardo]
+//  Copyright (c) [2014-2015] [Daniele Di Bernardo]
 //  
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
