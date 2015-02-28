@@ -33,6 +33,12 @@
 
 MPNumericTextFieldDelegate *numericDelegate;
 
+@interface MPNumericTextField()
+
+@property (nonatomic, strong) MPNumericTextFieldDelegate *numericDelegate;
+
+@end
+
 @implementation MPNumericTextField
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
@@ -139,5 +145,23 @@ MPNumericTextFieldDelegate *numericDelegate;
       return [MPFormatterUtils percentageFromString:_encodedValue locale:_locale];
   }
 }
+
+// Override basic delegate setter/getter functions
+- (void)setDelegate:(id<UITextFieldDelegate>)delegate {
+  if (!delegate || [delegate isKindOfClass:[MPNumericTextFieldDelegate class]]) {
+    _forwardDelegate = nil;
+    super.delegate = delegate;
+  } else {
+    _forwardDelegate = delegate;
+  }
+}
+
+- (id<UITextFieldDelegate>)delegate {
+  if (_forwardDelegate)
+    return _forwardDelegate;
+  else
+    return numericDelegate;
+}
+
 
 @end

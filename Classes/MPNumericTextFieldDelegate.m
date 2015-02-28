@@ -39,16 +39,74 @@
 
 @implementation MPNumericTextFieldDelegate
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-  [textField resignFirstResponder];
-  return YES;
+/*
+ * Reads the forward delegate from the `MPNumericTextField` instance, if present.
+ * If the `textField` object is not a numeric text field returns a nil value.
+ */
+- (id<UITextFieldDelegate>) getForwardDelegateFrom:(UITextField *)textField {
+  if ([textField isKindOfClass:[MPNumericTextField class]]) {
+    return ((MPNumericTextField *)textField).forwardDelegate;
+  }
+  return nil;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+  id delegate = [self getForwardDelegateFrom:textField];
+  if (delegate && [delegate respondsToSelector:@selector(textFieldShouldBeginEditing:)]) {
+    return [delegate textFieldShouldBeginEditing:textField];
+  } else {
+    return YES;
+  }
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+  id delegate = [self getForwardDelegateFrom:textField];
+  if (delegate && [delegate respondsToSelector:@selector(textFieldDidBeginEditing:)]) {
+    return [delegate textFieldDidBeginEditing:textField];
+  }
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
-  [textField resignFirstResponder];
-  return YES;
+  id delegate = [self getForwardDelegateFrom:textField];
+  if (delegate && [delegate respondsToSelector:@selector(textFieldShouldEndEditing:)]) {
+    return [delegate textFieldShouldEndEditing:textField];
+  } else {
+    [textField resignFirstResponder];
+    return YES;
+  }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+  id delegate = [self getForwardDelegateFrom:textField];
+  if (delegate && [delegate respondsToSelector:@selector(textFieldDidEndEditing:)]) {
+    return [delegate textFieldDidEndEditing:textField];
+  }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  id delegate = [self getForwardDelegateFrom:textField];
+  if (delegate && [delegate respondsToSelector:@selector(textFieldShouldReturn:)]) {
+    return [delegate textFieldShouldReturn:textField];
+  } else {
+    [textField resignFirstResponder];
+    return YES;
+  }
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+  BOOL result = YES;
+  id delegate = [self getForwardDelegateFrom:textField];
+  if (delegate && [delegate respondsToSelector:@selector(textFieldShouldClear:)]) {
+    result = [delegate textFieldShouldClear:textField];
+  }
+  
+  if (result && [textField isKindOfClass:MPNumericTextField.class]) {
+    MPNumericTextField *fxText = (MPNumericTextField *)textField;
+    fxText.encodedValue = nil;
+  }
+  
+  return result;
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -150,15 +208,5 @@
   //always return no since we are manually changing the text field
   return NO;
 }
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField {
-  if ([textField isKindOfClass:MPNumericTextField.class]) {
-    MPNumericTextField *fxText = (MPNumericTextField *)textField;
-    fxText.encodedValue = nil;
-  }
-  
-  return YES;
-}
-
 
 @end

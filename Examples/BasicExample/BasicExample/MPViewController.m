@@ -8,7 +8,7 @@
 
 #import "MPViewController.h"
 
-@interface MPViewController ()
+@interface MPViewController() <UITextFieldDelegate>
 
 @end
 
@@ -31,6 +31,8 @@
   _percentageField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _currencyField.clearButtonMode = UITextFieldViewModeWhileEditing;
   
+  _currencyField.delegate = self;
+  
   [_decimalField setNumericValue:@(10.2)];
   [_percentageField setNumericValue:@(5)];
 }
@@ -47,6 +49,15 @@
                              delegate:nil
                     cancelButtonTitle:@"OK"
                      otherButtonTitles:nil] show];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+  NSLog(@"Text field started editing with value %@", textField.text);
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+  NSLog(@"Custom delegate implementation is preventing the field from clearing");
+  return NO;
 }
 
 @end

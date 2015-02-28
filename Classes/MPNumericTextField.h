@@ -46,7 +46,7 @@ IB_DESIGNABLE
 @property (nonatomic, strong) IBInspectable UIColor        *placeholderColor;
 @property (nonatomic, assign) enum MPNumericTextFieldType   type;
 @property (nonatomic, strong) NSLocale                     *locale;
-@property (nonatomic, getter = numericDelegate) MPNumericTextFieldDelegate   *numericDelegate;
 @property (nonatomic, assign) NSNumber                     *numericValue;
+@property (nonatomic, readonly) id<UITextFieldDelegate>     forwardDelegate;
 
 @end
