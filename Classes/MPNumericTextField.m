@@ -76,14 +76,22 @@ MPNumericTextFieldDelegate *numericDelegate;
   switch (type) {
     case MPNumericTextFieldPercentage:
       self.placeholder = [MPFormatterUtils stringFromPercentage:@(0) locale:self.locale];
+      self.keyboardType = UIKeyboardTypeDecimalPad;
       break;
 
     case MPNumericTextFieldCurrency:
       self.placeholder = [MPFormatterUtils stringFromCurrency:@(0) locale:self.locale];
+      self.keyboardType = UIKeyboardTypeDecimalPad;
       break;
 
     case MPNumericTextFieldDecimal:
       self.placeholder = [MPFormatterUtils stringFromNumber:@(0) locale:self.locale];
+      self.keyboardType = UIKeyboardTypeDecimalPad;
+      break;
+    
+    case MPNumericTextFieldInteger:
+      self.placeholder = [MPFormatterUtils stringFromInteger:@(0) locale:self.locale];
+      self.keyboardType = UIKeyboardTypeNumberPad;
       break;
   }
 }
@@ -130,6 +138,9 @@ MPNumericTextFieldDelegate *numericDelegate;
     case MPNumericTextFieldPercentage:
       self.encodedValue = [MPFormatterUtils stringFromPercentage:value locale:_locale];
       break;
+    case MPNumericTextFieldInteger:
+      self.encodedValue = [MPFormatterUtils stringFromInteger:value locale:_locale];
+      break;
   }
   
   self.text = self.encodedValue;
@@ -143,6 +154,8 @@ MPNumericTextFieldDelegate *numericDelegate;
       return [MPFormatterUtils numberFromString:_encodedValue locale:_locale];
     case MPNumericTextFieldPercentage:
       return [MPFormatterUtils percentageFromString:_encodedValue locale:_locale];
+    case MPNumericTextFieldInteger:
+      return [MPFormatterUtils integerFromString:_encodedValue locale:_locale];
   }
 }
 

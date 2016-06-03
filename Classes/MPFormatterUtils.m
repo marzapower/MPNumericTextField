@@ -120,6 +120,21 @@
 	return formatted;
 }
 
++ (NSString *)stringFromInteger:(NSNumber *)integer locale:(NSLocale *)locale
+{
+    // get formatted string
+    NSNumberFormatter * myNumFormatter = [[NSNumberFormatter alloc] init];
+    [myNumFormatter setLocale:locale];
+    [myNumFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [myNumFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [myNumFormatter setGeneratesDecimalNumbers:NO];
+    [myNumFormatter setMinimumFractionDigits:0];
+    [myNumFormatter setMaximumFractionDigits:0];
+    
+    NSString* formatted = [myNumFormatter stringFromNumber:integer];
+    return formatted;
+}
+
 + (NSNumber *)numberFromString:(NSString *)string locale:(NSLocale *)locale
 {
 	// localization allows other thousands separators, also.
@@ -131,6 +146,22 @@
 	NSNumber *tempNum = [myNumFormatter numberFromString:string];
 	
 	return tempNum;
+}
+
++ (NSNumber *)integerFromString:(NSString *)string locale:(NSLocale *)locale
+{
+    // localization allows other thousands separators, also.
+    NSNumberFormatter * myNumFormatter = [[NSNumberFormatter alloc] init];
+    [myNumFormatter setLocale:locale];
+    [myNumFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [myNumFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [myNumFormatter setGeneratesDecimalNumbers:NO];
+    [myNumFormatter setMinimumFractionDigits:0];
+    [myNumFormatter setMaximumFractionDigits:0];
+    
+    NSNumber *tempNum = [myNumFormatter numberFromString:string];
+    
+    return [NSNumber numberWithInt:tempNum.intValue];
 }
 
 + (NSNumber *)currencyFromString:(NSString *)string locale:(NSLocale *)locale
