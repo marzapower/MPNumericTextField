@@ -3,7 +3,7 @@ MPNumericTextField
 
 `MPNumericTextField` is a class that extends the basic `UITextField` to make you easily input formatted numbers in a text field.
 
-It correctly handles decimal numbers, percentages and currency values, using either the current locale or a manually provided one.
+It correctly handles decimal numbers, integer numbers, percentages and currency values, using either the current locale or a manually provided one.
 
 ![Screenshot of BasicExample](https://raw.githubusercontent.com/marzapower/MPNumericTextField/master/Examples/BasicExample/screenshot.png)
 
@@ -17,7 +17,7 @@ Installation
 Just add the following line to the `Podfile` in your project:
 
 ```ruby
-pod "MPNumericTextField", '~> 1.1.0'
+pod "MPNumericTextField", '~> 1.2.0'
 ```
 
 ### Manually
@@ -51,8 +51,9 @@ and the local text field delegate implementation (see `MPNumericTextFieldDelegat
 You can change the default number style for the text field via the `type` property. It can be set to one of these values:
 
   1. `MPNumericTextFieldDecimal` (default one)
-  2. `MPNumericTextFieldCurrency`
-  2. `MPNumericTextFieldPercentage`
+  2. `MPNumericTextFieldInteger`
+  3. `MPNumericTextFieldCurrency`
+  4. `MPNumericTextFieldPercentage`
 
 Eg. to change the number style of your text field to currency just do:
 
@@ -113,6 +114,10 @@ If you need further assistance, please contact me on Twitter: [@marzapower][twit
 [twitter]: http://www.twitter.com/marzapower
 
 ## Release notes
+
+Version 1.2.0
+ - [New] Added support to integer-only numbers with `MPNumericTextFieldInteger`
+ - [Enh] Better support for Swift integration
 
 Version 1.1.0
 
