@@ -70,7 +70,7 @@ MPNumericTextFieldDelegate *numericDelegate;
   self.textAlignment = NSTextAlignmentRight;
 }
 
-- (void) setType:(enum MPNumericTextFieldType)type {
+- (void) setType:(MPNumericTextFieldType)type {
   _type = type;
   
   switch (type) {

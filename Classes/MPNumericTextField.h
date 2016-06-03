@@ -33,10 +33,11 @@
 #import "MPNumericTextFieldDelegate.h"
 #import "MPFormatterUtils.h"
 
-enum MPNumericTextFieldType {
+typedef NS_ENUM(NSUInteger, MPNumericTextFieldType) {
   MPNumericTextFieldDecimal = 0,
   MPNumericTextFieldCurrency,
-  MPNumericTextFieldPercentage
+  MPNumericTextFieldPercentage,
+  MPNumericTextFieldInteger
 };
 
 IB_DESIGNABLE
@@ -44,7 +45,7 @@ IB_DESIGNABLE
 
 @property (nonatomic, copy)   NSString                     *encodedValue;
 @property (nonatomic, strong) IBInspectable UIColor        *placeholderColor;
-@property (nonatomic, assign) enum MPNumericTextFieldType   type;
+@property (nonatomic, assign) MPNumericTextFieldType        type;
 @property (nonatomic, strong) NSLocale                     *locale;
 @property (nonatomic, assign) NSNumber                     *numericValue;
 @property (nonatomic, readonly) id<UITextFieldDelegate>     forwardDelegate;
