@@ -155,6 +155,9 @@
         n = [MPFormatterUtils percentageFromString:fxText.encodedValue locale:locale];
         n = @(round(([n doubleValue] * 10000))/10);
         break;
+      case MPNumericTextFieldInteger:
+        n = [MPFormatterUtils integerFromString:fxText.encodedValue locale:locale];
+        break;
     }
     
     NSMutableString* mstring = [[n stringValue] mutableCopy];
@@ -202,6 +205,9 @@
         number = [MPFormatterUtils percentageFromString:mstring locale:locale];
         fxText.encodedValue = [MPFormatterUtils stringFromPercentage:number locale:locale];
         break;
+      case MPNumericTextFieldInteger:
+        number = @(number.integerValue);
+        fxText.encodedValue = [MPFormatterUtils stringFromInteger:number locale:locale];
     }
   }
   
