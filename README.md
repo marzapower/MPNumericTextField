@@ -17,7 +17,7 @@ Installation
 Just add the following line to the `Podfile` in your project:
 
 ```ruby
-pod "MPNumericTextField", '~> 1.2.0'
+pod "MPNumericTextField", '~> 1.2.1'
 ```
 
 ### Manually
@@ -114,6 +114,9 @@ If you need further assistance, please contact me on Twitter: [@marzapower][twit
 [twitter]: http://www.twitter.com/marzapower
 
 ## Release notes
+
+Version 1.2.1
+ - [fix] Doesn't use cached locale anymore when system locale changes
 
 Version 1.2.0
  - [New] Added support to integer-only numbers with `MPNumericTextFieldInteger`
