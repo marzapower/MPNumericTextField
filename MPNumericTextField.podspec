@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MPNumericTextField"
-  s.version      = "1.2.0"
+  s.version      = "1.2.1"
   s.summary      = "A class that extends UITextField to input numbers, percentages and currencies."
 
   s.description  = <<-DESC
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/marzapower"
 
   s.platform     = :ios, "6.0"
-  s.source       = { :git => "https://github.com/marzapower/MPNumericTextField.git", :tag => "1.2.0" }
+  s.source       = { :git => "https://github.com/marzapower/MPNumericTextField.git", :tag => "1.2.1" }
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
   s.public_header_files = "Classes/**/*.h"
