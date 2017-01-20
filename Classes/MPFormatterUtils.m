@@ -36,7 +36,7 @@
 + (NSNumberFormatter *)currencyFormatter:(NSLocale *)locale
 {
   static NSNumberFormatter *currencyFormatter;
-  if (!currencyFormatter) {
+  if (!currencyFormatter || currencyFormatter.locale != locale) {
     currencyFormatter  = [[NSNumberFormatter alloc] init];
     [currencyFormatter setLocale:locale];
     [currencyFormatter setFormatterBehavior:NSNumberFormatterBehaviorDefault];
@@ -60,7 +60,7 @@
 	}
 	
 	static NSNumberFormatter *percentFormatter;
-	if (percentFormatter == NULL) {
+	if (percentFormatter == NULL || percentFormatter.locale != locale) {
 		percentFormatter  = [[NSNumberFormatter alloc] init];
     percentFormatter.locale = locale;
 		[percentFormatter setGeneratesDecimalNumbers:YES];
@@ -84,7 +84,7 @@
 	}
 	
 	static NSNumberFormatter *percentFormatter;
-	if (percentFormatter == NULL) {
+	if (percentFormatter == NULL || percentFormatter.locale != locale) {
 		percentFormatter  = [[NSNumberFormatter alloc] init];
     percentFormatter.locale = locale;
 		[percentFormatter setGeneratesDecimalNumbers:YES];
