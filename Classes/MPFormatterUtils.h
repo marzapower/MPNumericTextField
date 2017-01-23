@@ -33,14 +33,14 @@
 
 @interface MPFormatterUtils : NSObject
 
-+ (NSNumberFormatter *)currencyFormatter:(NSLocale *)locale;
++ (NSNumberFormatter *)currencyFormatter:(NSLocale *)locale currencyCode:(NSString *)code;
 + (NSString *)stringFromPercentage:(NSNumber *)number locale:(NSLocale *)locale;
 + (NSString *)shortStringFromPercentage:(NSNumber *)number locale:(NSLocale *)locale;
-+ (NSString *)stringFromCurrency:(NSNumber *)currency locale:(NSLocale *)locale;
++ (NSString *)stringFromCurrency:(NSNumber *)currency locale:(NSLocale *)locale currencyCode:(NSString *)code;
 + (NSString *)stringFromNumber:(NSNumber *)currency locale:(NSLocale *)locale;
 + (NSString *)stringFromInteger:(NSNumber *)integer locale:(NSLocale *)locale;
 + (NSNumber *)numberFromString:(NSString *)string locale:(NSLocale *)locale;
-+ (NSNumber *)currencyFromString:(NSString *)string locale:(NSLocale *)locale;
++ (NSNumber *)currencyFromString:(NSString *)string locale:(NSLocale *)locale currencyCode:(NSString *)code;
 + (NSNumber *)percentageFromString:(NSString *)string locale:(NSLocale *)locale;
 + (NSNumber *)integerFromString:(NSString *)string locale:(NSLocale *)locale;
 

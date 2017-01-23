@@ -64,6 +64,7 @@ MPNumericTextFieldDelegate *numericDelegate;
 
 - (void) setDefaults {
   self.locale = [NSLocale currentLocale];
+  self.currencyCode = self.locale.currencyCode;
   self.keyboardType = UIKeyboardTypeDecimalPad;
   self.type = MPNumericTextFieldDecimal;
   self.delegate = self.numericDelegate;
@@ -80,7 +81,7 @@ MPNumericTextFieldDelegate *numericDelegate;
       break;
 
     case MPNumericTextFieldCurrency:
-      self.placeholder = [MPFormatterUtils stringFromCurrency:@(0) locale:self.locale];
+      self.placeholder = [MPFormatterUtils stringFromCurrency:@(0) locale:self.locale currencyCode:self.currencyCode];
       self.keyboardType = UIKeyboardTypeDecimalPad;
       break;
 
@@ -130,7 +131,7 @@ MPNumericTextFieldDelegate *numericDelegate;
 - (void) setNumericValue:(NSNumber *)value {
   switch (_type) {
     case MPNumericTextFieldCurrency:
-      self.encodedValue = [MPFormatterUtils stringFromCurrency:value locale:_locale];
+      self.encodedValue = [MPFormatterUtils stringFromCurrency:value locale:_locale currencyCode:_currencyCode];
       break;
     case MPNumericTextFieldDecimal:
       self.encodedValue = [MPFormatterUtils stringFromNumber:value locale:_locale];
@@ -149,7 +150,7 @@ MPNumericTextFieldDelegate *numericDelegate;
 - (NSNumber *)numericValue {
   switch (_type) {
     case MPNumericTextFieldCurrency:
-      return [MPFormatterUtils currencyFromString:_encodedValue locale:_locale];
+      return [MPFormatterUtils currencyFromString:_encodedValue locale:_locale currencyCode:_currencyCode];
     case MPNumericTextFieldDecimal:
       return [MPFormatterUtils numberFromString:_encodedValue locale:_locale];
     case MPNumericTextFieldPercentage:

@@ -118,7 +118,8 @@
   
   MPNumericTextField *fxText = (MPNumericTextField *)textField;
   NSLocale *locale = fxText.locale;
-  NSNumberFormatter *currencyFormatter = [MPFormatterUtils currencyFormatter:locale];
+  NSString *currencyCode = fxText.currencyCode;
+  NSNumberFormatter *currencyFormatter = [MPFormatterUtils currencyFormatter:locale currencyCode:currencyCode];
   
   NSMutableCharacterSet *numberSet = [[NSCharacterSet decimalDigitCharacterSet] mutableCopy];
   [numberSet formUnionWithCharacterSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -142,7 +143,7 @@
     
     switch (fxText.type) {
       case MPNumericTextFieldCurrency:
-        n = [MPFormatterUtils currencyFromString:fxText.encodedValue locale:locale];
+        n = [MPFormatterUtils currencyFromString:fxText.encodedValue locale:locale currencyCode:currencyCode];
         mul = pow(10, [currencyFormatter maximumFractionDigits] + 1);
         n = @(round(([n doubleValue] * mul))/10);
         break;
@@ -195,7 +196,7 @@
     switch (fxText.type) {
       case MPNumericTextFieldCurrency:
         number = @(number.doubleValue / rate);
-        fxText.encodedValue = [MPFormatterUtils stringFromCurrency:number locale:locale];
+        fxText.encodedValue = [MPFormatterUtils stringFromCurrency:number locale:locale currencyCode:currencyCode];
         break;
       case MPNumericTextFieldDecimal:
         number = @(number.doubleValue / rate);

@@ -33,12 +33,15 @@
 
 @implementation MPFormatterUtils
 
-+ (NSNumberFormatter *)currencyFormatter:(NSLocale *)locale
++ (NSNumberFormatter *)currencyFormatter:(NSLocale *)locale currencyCode:(NSString *)code
 {
   static NSNumberFormatter *currencyFormatter;
-  if (!currencyFormatter || currencyFormatter.locale != locale) {
+  if (!currencyFormatter || currencyFormatter.locale != locale || (code != nil && currencyFormatter.currencyCode != code)) {
     currencyFormatter  = [[NSNumberFormatter alloc] init];
     [currencyFormatter setLocale:locale];
+    if (code) {
+      [currencyFormatter setCurrencyCode:code];
+    }
     [currencyFormatter setFormatterBehavior:NSNumberFormatterBehaviorDefault];
     [currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     
@@ -101,10 +104,10 @@
 	return formatted;
 }
 
-+ (NSString *)stringFromCurrency:(NSNumber *)currency locale:(NSLocale *)locale
++ (NSString *)stringFromCurrency:(NSNumber *)currency locale:(NSLocale *)locale currencyCode:(NSString *)code
 {
 	// get formatted string
-	NSString* formatted = [[self currencyFormatter:locale] stringFromNumber:currency];
+    NSString* formatted = [[self currencyFormatter:locale currencyCode:code] stringFromNumber:currency];
 	return formatted;
 }
 
@@ -164,9 +167,9 @@
     return [NSNumber numberWithInt:tempNum.intValue];
 }
 
-+ (NSNumber *)currencyFromString:(NSString *)string locale:(NSLocale *)locale
++ (NSNumber *)currencyFromString:(NSString *)string locale:(NSLocale *)locale currencyCode:(NSString *)code
 {
-  NSNumberFormatter *currencyFormatter = [self currencyFormatter:locale];
+  NSNumberFormatter *currencyFormatter = [self currencyFormatter:locale currencyCode:code];
   return [currencyFormatter numberFromString:string];
 }
 
