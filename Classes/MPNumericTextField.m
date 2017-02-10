@@ -64,7 +64,7 @@ MPNumericTextFieldDelegate *numericDelegate;
 
 - (void) setDefaults {
   self.locale = [NSLocale currentLocale];
-  self.currencyCode = self.locale.currencyCode;
+  self.currencyCode = [self.locale objectForKey:NSLocaleCurrencyCode];
   self.keyboardType = UIKeyboardTypeDecimalPad;
   self.type = MPNumericTextFieldDecimal;
   self.delegate = self.numericDelegate;
