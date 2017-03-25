@@ -47,6 +47,7 @@ IB_DESIGNABLE
 @property (nonatomic, strong) IBInspectable UIColor        *placeholderColor;
 @property (nonatomic, assign) MPNumericTextFieldType        type;
 @property (nonatomic, strong) NSLocale                     *locale;
+@property (nonatomic, strong) NSString                     *currencyCode;
 @property (nonatomic, assign) NSNumber                     *numericValue;
 @property (nonatomic, readonly) id<UITextFieldDelegate>     forwardDelegate;
 
