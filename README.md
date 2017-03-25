@@ -17,7 +17,7 @@ Installation
 Just add the following line to the `Podfile` in your project:
 
 ```ruby
-pod "MPNumericTextField", '~> 1.2.1'
+pod "MPNumericTextField", '~> 1.3.0'
 ```
 
 ### Manually
@@ -83,6 +83,16 @@ By default behavior the `MPNumericTextField` will use the `[NSLocale currentLoca
 numericTextField.locale = myCustomLocale;
 ```
 
+### Custom currencies
+
+When using `MPNumericTextField` for displaying currencies, an old limitation was to be stuck with the currency code provided by `NSLocale`.
+
+Starting from v. 1.3.0 it's possible to set a custom currency code to represent those values using the desired currency:
+
+```objective-c
+numericTextField.currencyCode = @"JPY";
+```
+
 ### Delegates
 
 The `MPNumericTextField` class seamlessly uses the `MPNumericTextFieldDelegate` class as its own delegate. This delegate handles all the
@@ -114,6 +124,10 @@ If you need further assistance, please contact me on Twitter: [@marzapower][twit
 [twitter]: http://www.twitter.com/marzapower
 
 ## Release notes
+
+Version 1.3.0
+ - [new] Custom currency codes for the text field
+ - [new] Nullability modifiers for the utility methods in `MPFormatterUtils`
 
 Version 1.2.1
  - [fix] Doesn't use cached locale anymore when system locale changes
