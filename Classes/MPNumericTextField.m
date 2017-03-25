@@ -71,6 +71,12 @@ MPNumericTextFieldDelegate *numericDelegate;
   self.textAlignment = NSTextAlignmentRight;
 }
 
+- (void) setCurrencyCode:(NSString *)currencyCode {
+  _currencyCode = currencyCode;
+  // This call will force the reset of the placeholder (if needed):
+  [self setType:self.type];
+}
+
 - (void) setType:(MPNumericTextFieldType)type {
   _type = type;
   
