@@ -3,7 +3,7 @@
 //  BasicExample
 //
 //  Created by Daniele Di Bernardo on 06/04/14.
-//  Copyright (c) 2014 marzapower. All rights reserved.
+//  Copyright (c) 2017 marzapower. All rights reserved.
 //
 
 #import "MPViewController.h"
@@ -22,19 +22,25 @@
   _decimalField.placeholderColor = placeholderColor;
   _percentageField.placeholderColor = placeholderColor;
   _currencyField.placeholderColor = placeholderColor;
+  _customCurrencyField.placeholderColor = placeholderColor;
   
   _decimalField.type = MPNumericTextFieldDecimal;
   _percentageField.type = MPNumericTextFieldPercentage;
   _currencyField.type = MPNumericTextFieldCurrency;
+  _customCurrencyField.type = MPNumericTextFieldCurrency;
   
   _decimalField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _percentageField.clearButtonMode = UITextFieldViewModeWhileEditing;
   _currencyField.clearButtonMode = UITextFieldViewModeWhileEditing;
+  _customCurrencyField.clearButtonMode = UITextFieldViewModeWhileEditing;
   
-  _currencyField.delegate = self;
+  _customCurrencyField.currencyCode = @"JPY";
   
   [_decimalField setNumericValue:@(10.2)];
   [_percentageField setNumericValue:@(5)];
+  
+  _currencyField.delegate = self;
+  _customCurrencyField.delegate = self;
 }
 
 - (void)getValues:(id)sender {
