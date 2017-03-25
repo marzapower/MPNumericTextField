@@ -33,15 +33,18 @@
 
 @interface MPFormatterUtils : NSObject
 
-+ (NSNumberFormatter *)currencyFormatter:(NSLocale *)locale currencyCode:(NSString *)code;
-+ (NSString *)stringFromPercentage:(NSNumber *)number locale:(NSLocale *)locale;
-+ (NSString *)shortStringFromPercentage:(NSNumber *)number locale:(NSLocale *)locale;
-+ (NSString *)stringFromCurrency:(NSNumber *)currency locale:(NSLocale *)locale currencyCode:(NSString *)code;
-+ (NSString *)stringFromNumber:(NSNumber *)currency locale:(NSLocale *)locale;
-+ (NSString *)stringFromInteger:(NSNumber *)integer locale:(NSLocale *)locale;
-+ (NSNumber *)numberFromString:(NSString *)string locale:(NSLocale *)locale;
-+ (NSNumber *)currencyFromString:(NSString *)string locale:(NSLocale *)locale currencyCode:(NSString *)code;
-+ (NSNumber *)percentageFromString:(NSString *)string locale:(NSLocale *)locale;
-+ (NSNumber *)integerFromString:(NSString *)string locale:(NSLocale *)locale;
++ (nonnull NSNumberFormatter *)currencyFormatter:(nonnull NSLocale *)locale;
++ (nonnull NSNumberFormatter *)currencyFormatter:(nonnull NSLocale *)locale currencyCode:(nullable NSString *)code;
++ (nonnull NSString *)stringFromPercentage:(nonnull NSNumber *)number locale:(nonnull NSLocale *)locale;
++ (nonnull NSString *)shortStringFromPercentage:(nonnull NSNumber *)number locale:(nonnull NSLocale *)locale;
++ (nonnull NSString *)stringFromCurrency:(nonnull NSNumber *)currency locale:(nonnull NSLocale *)locale;
++ (nonnull NSString *)stringFromCurrency:(nonnull NSNumber *)currency locale:(nonnull NSLocale *)locale currencyCode:(nullable NSString *)code;
++ (nonnull NSString *)stringFromNumber:(nonnull NSNumber *)currency locale:(nonnull NSLocale *)locale;
++ (nonnull NSString *)stringFromInteger:(nonnull NSNumber *)integer locale:(nonnull NSLocale *)locale;
++ (nonnull NSNumber *)numberFromString:(nonnull NSString *)string locale:(nonnull NSLocale *)locale;
++ (nonnull NSNumber *)currencyFromString:(nonnull NSString *)string locale:(nonnull NSLocale *)locale;
++ (nonnull NSNumber *)currencyFromString:(nonnull NSString *)string locale:(nonnull NSLocale *)locale currencyCode:(nullable NSString *)code;
++ (nonnull NSNumber *)percentageFromString:(nonnull NSString *)string locale:(nonnull NSLocale *)locale;
++ (nonnull NSNumber *)integerFromString:(nonnull NSString *)string locale:(nonnull NSLocale *)locale;
 
 @end

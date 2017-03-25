@@ -33,6 +33,11 @@
 
 @implementation MPFormatterUtils
 
++ (NSNumberFormatter *)currencyFormatter:(NSLocale *)locale
+{
+  return [MPFormatterUtils currencyFormatter:locale currencyCode:nil];
+}
+
 + (NSNumberFormatter *)currencyFormatter:(NSLocale *)locale currencyCode:(NSString *)code
 {
   static NSNumberFormatter *currencyFormatter;
@@ -104,6 +109,11 @@
 	return formatted;
 }
 
++ (NSString *)stringFromCurrency:(NSNumber *)currency locale:(NSLocale *)locale
+{
+  return [self stringFromCurrency:currency locale:locale currencyCode:nil];
+}
+
 + (NSString *)stringFromCurrency:(NSNumber *)currency locale:(NSLocale *)locale currencyCode:(NSString *)code
 {
 	// get formatted string
@@ -165,6 +175,11 @@
     NSNumber *tempNum = [myNumFormatter numberFromString:string];
     
     return [NSNumber numberWithInt:tempNum.intValue];
+}
+
++ (NSNumber *)currencyFromString:(NSString *)string locale:(NSLocale *)locale
+{
+  return [self currencyFromString:string locale:locale currencyCode:nil];
 }
 
 + (NSNumber *)currencyFromString:(NSString *)string locale:(NSLocale *)locale currencyCode:(NSString *)code
