@@ -103,24 +103,6 @@ MPNumericTextFieldDelegate *numericDelegate;
   }
 }
 
-- (void)drawPlaceholderInRect:(CGRect)rect
-{
-  if (self.placeholderColor != nil) {
-    CGRect placeholderRect = CGRectMake(rect.origin.x, (rect.size.height- self.font.pointSize)/2, rect.size.width, self.font.pointSize);
-    
-    NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    style.lineBreakMode = NSLineBreakByTruncatingTail;
-    style.alignment = self.textAlignment;
-    
-    NSDictionary *attributes = @{NSFontAttributeName: self.font,
-                                 NSParagraphStyleAttributeName: style,
-                                 NSForegroundColorAttributeName: self.placeholderColor};
-    [self.placeholder drawInRect:placeholderRect withAttributes:attributes];
-  } else {
-    [super drawPlaceholderInRect:rect];
-  }
-}
-
 - (void)setEncodedValue:(NSString *)encodedValue
 {
   _encodedValue = encodedValue;
