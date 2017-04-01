@@ -43,32 +43,33 @@ MPNumericTextFieldDelegate *numericDelegate;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
   if ((self = [super initWithCoder:aDecoder])) {
-    [self setDefaults];
+    [self setDefaultsWithForcedAlignment:NO];
   }
   return self;
 }
 
 - (id)initWithFrame:(CGRect)frame {
   if ((self = [super initWithFrame:frame])) {
-    [self setDefaults];
+    [self setDefaultsWithForcedAlignment:NO];
   }
   return self;
 }
 
 - (id)init {
   if ((self = [super init])) {
-    [self setDefaults];
+    [self setDefaultsWithForcedAlignment:YES];
   }
   return self;
 }
 
-- (void) setDefaults {
+- (void) setDefaultsWithForcedAlignment:(BOOL)forceAlignment {
   self.locale = [NSLocale currentLocale];
   self.currencyCode = [self.locale objectForKey:NSLocaleCurrencyCode];
   self.keyboardType = UIKeyboardTypeDecimalPad;
   self.type = MPNumericTextFieldDecimal;
   self.delegate = self.numericDelegate;
-  self.textAlignment = NSTextAlignmentRight;
+  if (forceAlignment)
+    self.textAlignment = NSTextAlignmentRight;
 }
 
 - (void) setCurrencyCode:(NSString *)currencyCode {
