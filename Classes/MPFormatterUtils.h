@@ -1,7 +1,7 @@
 //
 //  MPFormatterUtils.h
 //
-//  Version 1.3.0
+//  Version 1.4.0
 //
 //  Created by Daniele Di Bernardo on 06/04/14.
 //  Copyright (c) 2017 marzapower. All rights reserved.

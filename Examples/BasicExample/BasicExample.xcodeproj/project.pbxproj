@@ -25,6 +25,7 @@
 		8513504618F1874C00A12D4A /* MPFormatterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8513504118F1874C00A12D4A /* MPFormatterUtils.m */; };
 		8513504718F1874C00A12D4A /* MPNumericTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8513504318F1874C00A12D4A /* MPNumericTextField.m */; };
 		8513504818F1874C00A12D4A /* MPNumericTextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8513504518F1874C00A12D4A /* MPNumericTextFieldDelegate.m */; };
+		CFA3075B1E8FE18200B7A8ED /* MPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA3075A1E8FE18200B7A8ED /* MPTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		8513504318F1874C00A12D4A /* MPNumericTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNumericTextField.m; sourceTree = "<group>"; };
 		8513504418F1874C00A12D4A /* MPNumericTextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNumericTextFieldDelegate.h; sourceTree = "<group>"; };
 		8513504518F1874C00A12D4A /* MPNumericTextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNumericTextFieldDelegate.m; sourceTree = "<group>"; };
+		CFA307591E8FE18200B7A8ED /* MPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPTextField.h; sourceTree = "<group>"; };
+		CFA3075A1E8FE18200B7A8ED /* MPTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 				8513504318F1874C00A12D4A /* MPNumericTextField.m */,
 				8513504418F1874C00A12D4A /* MPNumericTextFieldDelegate.h */,
 				8513504518F1874C00A12D4A /* MPNumericTextFieldDelegate.m */,
+				CFA307591E8FE18200B7A8ED /* MPTextField.h */,
+				CFA3075A1E8FE18200B7A8ED /* MPTextField.m */,
 			);
 			name = Classes;
 			path = ../../Classes;
@@ -284,6 +289,7 @@
 				8513501818F1873A00A12D4A /* MPAppDelegate.m in Sources */,
 				8513504618F1874C00A12D4A /* MPFormatterUtils.m in Sources */,
 				8513504818F1874C00A12D4A /* MPNumericTextFieldDelegate.m in Sources */,
+				CFA3075B1E8FE18200B7A8ED /* MPTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +504,7 @@
 				8513503B18F1873A00A12D4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8513503C18F1873A00A12D4A /* Build configuration list for PBXNativeTarget "BasicExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +513,7 @@
 				8513503E18F1873A00A12D4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -17,7 +17,7 @@ Installation
 Just add the following line to the `Podfile` in your project:
 
 ```ruby
-pod "MPNumericTextField", '~> 1.3.0'
+pod "MPNumericTextField", '~> 1.4.0'
 ```
 
 ### Manually
@@ -125,14 +125,22 @@ If you need further assistance, please contact me on Twitter: [@marzapower][twit
 
 ## Release notes
 
+Version 1.4.0
+
+ - [new] The new `MPTextField` class opens the usage of `placeholderColor` outside of the handling of the numeric text field
+ - [fix] No more default right alignement for the text field if loaded from a NIB file
+
 Version 1.3.0
+
  - [new] Custom currency codes for the text field
  - [new] Nullability modifiers for the utility methods in `MPFormatterUtils`
 
 Version 1.2.1
+
  - [fix] Doesn't use cached locale anymore when system locale changes
 
 Version 1.2.0
+
  - [New] Added support to integer-only numbers with `MPNumericTextFieldInteger`
  - [Enh] Better support for Swift integration
 

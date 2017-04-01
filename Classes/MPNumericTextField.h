@@ -1,7 +1,7 @@
 //
 //  MPTextField.h
 //
-//  Version 1.3.0
+//  Version 1.4.0
 //
 //  Created by Daniele Di Bernardo on 05/04/14.
 //  Copyright (c) 2017 marzapower. All rights reserved.
@@ -32,6 +32,7 @@
 #import <UIKit/UIKit.h>
 #import "MPNumericTextFieldDelegate.h"
 #import "MPFormatterUtils.h"
+#import "MPTextField.h"
 
 typedef NS_ENUM(NSUInteger, MPNumericTextFieldType) {
   MPNumericTextFieldDecimal = 0,
@@ -41,7 +42,7 @@ typedef NS_ENUM(NSUInteger, MPNumericTextFieldType) {
 };
 
 IB_DESIGNABLE
-@interface MPNumericTextField : UITextField
+@interface MPNumericTextField : MPTextField
 
 @property (nonatomic, copy)   NSString                     *encodedValue;
 @property (nonatomic, assign) MPNumericTextFieldType        type;
